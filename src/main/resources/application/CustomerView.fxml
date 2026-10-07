@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="application.CustomerController">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- Top Menu -->
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Close" onAction="#handleClose"/>
+        </Menu>
+    </MenuBar>
+
+    <!-- Form Section -->
+    <GridPane hgap="10" vgap="10">
+        <Label fx:id="nameLabel" text="Customer Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="nameField" promptText="Enter full name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label fx:id="provinceLabel" text="Province:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="provinceBox" promptText="Select Province" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Action Buttons & Status -->
+    <HBox spacing="10">
+        <Button fx:id="saveButton" text="Save Customer" onAction="#handleSave" defaultButton="true"/>
+        <Button fx:id="deleteButton" text="Delete Selected" onAction="#handleDelete"/>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Ready" style="-fx-text-fill: gray;"/>
+
+    <!-- Customer Table -->
+    <TableView fx:id="customerTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nameCol" text="Name" prefWidth="200"/>
+            <TableColumn fx:id="provinceCol" text="Province" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>
